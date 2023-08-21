@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+
+  scope module: :public do
+    resources :customers
+    resources :cart_items
+  end
+
   # 顧客用
   # URL /customers/sign_in ...
   devise_for :customers,skip: [:passwords], controllers: {
