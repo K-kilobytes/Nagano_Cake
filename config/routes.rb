@@ -16,4 +16,8 @@ Rails.application.routes.draw do
   scope module: :public do
    resources :items, only: %i[index show]
   end
+
+  scope module: :public do
+   resources :addresses, only: %i[index edit create update destroy]
+  end
 end
