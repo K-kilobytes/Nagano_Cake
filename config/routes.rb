@@ -6,11 +6,11 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: 'public/sessions',
   }
-  #namespace :customers do
-    get "/" => "public/homes#top"
-    get "/about" => "public/homes#about"
+  scope module: :public do
+    get "/" => "homes#top"
+    get "about" => "homes#about"
     resources :orders, only: [:new, :index, :show, :complete]
-  #end
+  end
 
   # 管理者用
   # URL /admin/sign_in ...

@@ -25,29 +25,47 @@
             <ul class="navbar-nav ml-auto">
               <% if customer_signed_in? %>
                 <li class="nav-item">
-                    マイページ
+                  マイページ
                 </li>
                 <li class="nav-item">
-                    商品一覧
+                  商品一覧
                 </li>
                 <li class="nav-item">
-                    カート
+                  カート
                 </li>
                 <li class="nav-item">
-                    ログアウト
+                  ログアウト
+                </li>
+              <% elsif admin_signed_in? %>
+                <li class="nav-item">
+                  商品一覧
+                </li>
+                <li class="nav-item">
+                  会員一覧
+                </li>
+                <li class="nav-item">
+                  注文履歴一覧
+                </li>
+                <li class="nav-item">
+                  ジャンル一覧
+                </li>
+                <li class="nav-item">
+                  ログアウト
                 </li>
               <% else %>
                 <li class="nav-item">
-                    <button type="button" class="btn btn-light">about</button>
+                  <%= link_to about_path,  class: 'nav-link text-light' do %>
+                    About
+                  <% end %>
                 </li>
                 <li class="nav-item">
-                    商品一覧
+                  商品一覧
                 </li>
                 <li class="nav-item">
-                    新規登録
+                  新規登録
                 </li>
                 <li class="nav-item">
-                    ログイン
+                  ログイン
                 </li>
               <% end %>
             </ul>
