@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
 
   scope module: :public do
-    resources :customers
+
+    get "customers/mypage"=>"customers#show"
+    get "customers/infomation/edit"=>"customers#edit"
+    patch "customers/infomation"=>"customers#update"
+    get "customers/confirm"=>"customers#confirm"
+    patch "customers/quit"=>"customers#quit"
+
     resources :cart_items
   end
 
