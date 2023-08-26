@@ -3,7 +3,7 @@ item indexページ
 <h2>商品一覧</h2>
 <% @items.each do |item| %>
   <div>
-    <%= image_tag item.get_image %>
+    <%= image_tag item.get_item_image(100,100) %>
     <p>商品名：<%= item.name %></p>
     <p>単価(税抜き)：<%= item.unit_price %></p>
   </div>
