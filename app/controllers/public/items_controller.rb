@@ -1,11 +1,18 @@
 class Public::ItemsController < ApplicationController
+
   def index
-    @item = Item.new
+    #@items = Item.page(params[:page])ページネイション
     @items = Item.all
   end
+
   def show
     @item = Item.find(params[:id])
-    @user = User.find(@Item.user_id)
-    @Itemn = Item.new
+  end
+
+
+  private
+
+  def item_params
+    params.require(:item).permit(:name, :image, :description, :unit_price)
   end
 end
