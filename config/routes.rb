@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   # 顧客用
   # URL /customers/sign_in ...
   devise_for :customers,skip: [:passwords], controllers: {
@@ -9,6 +8,13 @@ Rails.application.routes.draw do
   scope module: :public do
     get "/" => "homes#top"
     get "about" => "homes#about"
+    get "customers/mypage"=>"customers#show"
+    get "customers/infomation/edit"=>"customers#edit"
+    patch "customers/infomation"=>"customers#update"
+    get "customers/confirm"=>"customers#confirm"
+    patch "customers/quit"=>"customers#quit"
+
+    resources :cart_items
     resources :orders, only: [:new, :index, :show, :complete]
   end
 
