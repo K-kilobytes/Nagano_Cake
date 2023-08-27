@@ -14,9 +14,14 @@ class Public::CustomersController < ApplicationController
   end
 
   def confirm
+    @customer=current_customer
   end
 
   def quit
+    @customer=current_customer
+    @customer.update_columns(is_deleted: true)
+    reset_session
+    redirect_to new_customer_registration_path
   end
 
   private

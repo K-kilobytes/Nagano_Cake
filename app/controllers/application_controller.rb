@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
     customers_mypage_path
   end
 
+  def after_sign_out_path_for(resource)
+    new_customer_registration_path
+  end
+
   protected
 
   def configure_permitted_parameters
