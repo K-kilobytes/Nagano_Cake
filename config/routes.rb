@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :public do
+    get 'homes/top'
+    get 'homes/about'
+  end
   # 顧客用
   # URL /customers/sign_in ...
   devise_for :customers,skip: [:passwords], controllers: {
@@ -7,7 +11,7 @@ Rails.application.routes.draw do
   }
   scope module: :public do
     get "/" => "homes#top"
-    get "/about" => "homes#about"
+    get "about" => "homes#about"
     get "customers/mypage"=>"customers#show"
     get "customers/infomation/edit"=>"customers#edit"
     patch "customers/infomation"=>"customers#update"
