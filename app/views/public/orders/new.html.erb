@@ -1,7 +1,17 @@
+
+<%= form_with model: @order, url: '/orders/new', method: :post do |f| %>
+<h2>支払方法</h2>
 <%= f.radio_button :payment_method, "credit_card" %>
 <%= f.label :payment_method_credit_card, "クレジットカード" %>
 
 <%= f.radio_button :payment_method, "transfer" %>
 <%= f.label :payment_method_transfer, "銀行振込" %>
 
-<%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display) %>
+<h2>お届け先</h2>
+
+
+
+
+<%= f.select :address, options_from_collection_for_select(Address.all, :id, :address_display) %>
+
+<% end %>
