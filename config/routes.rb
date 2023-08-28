@@ -5,10 +5,11 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: 'public/sessions',
   }
+  #get "test/about" => "public/homes#about"
 
   scope module: :public do
     root to: "homes#top"
-    get 'homes/about'=>'homes#about'
+    get "about"=>"homes#about"
     get "customers/mypage"=>"customers#show"
     get "customers/infomation/edit"=>"customers#edit"
     patch "customers/infomation"=>"customers#update"
